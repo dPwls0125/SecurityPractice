@@ -1,13 +1,10 @@
 package com.example.demo.service;
 
-import com.example.demo.domain.Board;
-import com.example.demo.domain.dto.boardRequestDto;
+import com.example.demo.entity.Board;
+import com.example.demo.entity.dto.boardRequestDto;
 import com.example.demo.repository.BoardRepository;
 import lombok.NoArgsConstructor;
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.PathVariable;
-
-import java.util.List;
 
 @Service
 @NoArgsConstructor
