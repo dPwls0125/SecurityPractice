@@ -32,8 +32,8 @@ dependencies {
 	annotationProcessor 'org.projectlombok:lombok'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 	testImplementation 'org.springframework.security:spring-security-test'
-	// https://mvnrepository.com/artifact/org.springdoc/springdoc-openapi-ui
-	implementation group: 'org.springdoc', name: 'springdoc-openapi-ui', version: '1.7.0'
+	//http://localhost:8080/swagger-ui.html
+	implementation group: 'org.springdoc', name: 'springdoc-openapi-starter-webmvc-ui', version: '2.1.0'
 	implementation 'javax.servlet:javax.servlet-api:3.1.0'
 }
 

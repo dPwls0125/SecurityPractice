@@ -41,12 +41,12 @@ public class WebSecurityConfig {
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http
                 .authorizeHttpRequests((requests) -> requests
-                        .requestMatchers(AUTH_WHITELIST).permitAll()
+//                        .requestMatchers(AUTH_WHITELIST).permitAll()
                         .requestMatchers(HttpMethod.POST,"/board/create/list").hasRole("ADMIN")
                         .requestMatchers(HttpMethod.DELETE,"/board/delete/list").hasRole("MANAGER")
                         .requestMatchers(HttpMethod.POST,"/board/update/list").hasRole("ADMIN")
-                        .requestMatchers(HttpMethod.POST,"/board/get/list").hasRole("USER")
-                        .anyRequest().authenticated())
+                        .requestMatchers(HttpMethod.POST,"/board/get/list").hasRole("USER") // prefixed with ROLE_
+                        .anyRequest().permitAll())
                         .csrf(AbstractHttpConfigurer::disable)// csrf 비활성화
                 .formLogin((form) -> form
                         .usernameParameter("username")

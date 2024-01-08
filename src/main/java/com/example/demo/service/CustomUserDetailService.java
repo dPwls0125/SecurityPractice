@@ -29,7 +29,7 @@ public class CustomUserDetailService implements UserDetailsService {
                 user = new User();
                 user.setEmail(email);
                 user.setPassword("1234");
-                user.setRole("ROLE_USER");
+                user.setRole("ROLE_ADMIN");
                 userRepository.save(user);
             }
         } catch(Exception e){
