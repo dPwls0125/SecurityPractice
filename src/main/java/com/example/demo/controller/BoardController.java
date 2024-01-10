@@ -18,7 +18,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class BoardController {
 
     private final BoardService boardService;
-    @PostMapping("/create/list")
+    @PostMapping("/create")
     @Operation(summary = "게시글 등록",
             description = "게시글 등록")
     public ResponseEntity<?> createBoard(boardRequestDto boardRequestDto){
@@ -29,14 +29,14 @@ public class BoardController {
         boardService.boardCreate(board);
         return new ResponseEntity<>("success",null);
     }
-    @DeleteMapping("/delete/list")
+    @DeleteMapping("/delete/{id}")
     @Operation(summary = "게시글 삭제",
             description = "게시글 삭제")
     public ResponseEntity<?> deleteBoard(@PathVariable Long id){
         boardService.boardDelete(id);
         return new ResponseEntity<>("success",null);
     }
-    @PostMapping("/update/list")
+    @PostMapping("/update/{id}")
     @Operation(summary = "게시글 수정",
             description = "게시글 수정")
     public Board update(@PathVariable Long id, boardRequestDto boardDto){
