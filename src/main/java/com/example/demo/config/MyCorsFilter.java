@@ -1,4 +1,4 @@
-package com.example.config;
+package com.example.demo.config;
 
 import org.springframework.core.Ordered;
 import org.springframework.core.annotation.Order;
@@ -16,7 +16,7 @@ import javax.servlet.http.HttpServletResponse;
 
 @Component
 @Order(Ordered.HIGHEST_PRECEDENCE)
-public class CorsFilter implements Filter {
+public class MyCorsFilter implements Filter {
     public void doFilter(ServletRequest req, ServletResponse res, FilterChain chain) throws IOException, ServletException {
         HttpServletResponse response = (HttpServletResponse) res;
         response.setHeader("Access-Control-Allow-Origin", "*");

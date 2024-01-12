@@ -7,14 +7,15 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 @Getter
-@Entity(name="board")
+@Entity
+@Table(name="board")
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
 public class Board{
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id
-    String id;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    Long id;
 
     @Column(name="title")
     String title;

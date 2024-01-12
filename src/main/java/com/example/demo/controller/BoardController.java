@@ -5,6 +5,7 @@ import com.example.demo.entity.dto.boardRequestDto;
 import com.example.demo.service.BoardService;
 import io.swagger.v3.oas.annotations.Operation;
 import lombok.RequiredArgsConstructor;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -27,14 +28,14 @@ public class BoardController {
                 .content(boardRequestDto.getContent())
                 .build();
         boardService.boardCreate(board);
-        return new ResponseEntity<>("success",null);
+        return ResponseEntity.ok("success");
     }
     @DeleteMapping("/delete/{id}")
     @Operation(summary = "게시글 삭제",
             description = "게시글 삭제")
     public ResponseEntity<?> deleteBoard(@PathVariable Long id){
         boardService.boardDelete(id);
-        return new ResponseEntity<>("success",null);
+        return new ResponseEntity<>("success", null, HttpStatus.OK);
     }
     @PostMapping("/update/{id}")
     @Operation(summary = "게시글 수정",

@@ -4,12 +4,13 @@ import com.example.demo.entity.Board;
 import com.example.demo.entity.dto.boardRequestDto;
 import com.example.demo.repository.BoardRepository;
 import lombok.NoArgsConstructor;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 @Service
-@NoArgsConstructor
+@RequiredArgsConstructor
 public class BoardService {
-    private BoardRepository boardRepository;
+    private final BoardRepository boardRepository;
     public void boardCreate(Board board){
         boardRepository.save(board);
     }
